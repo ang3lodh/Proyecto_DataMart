@@ -36,9 +36,7 @@ def limpiar_datos(df):
     # 6. Imputación de nulos críticos
     df_clean['region'] = df_clean['region'].fillna('Sin Region')
     
-    # --- FORMATEO FINAL PARA EXPORTACIÓN ---
-    
-    # Usamos Int64 (con I mayúscula) para permitir nulos en columnas numéricas
+    # Usamos (con I mayúscula) para permitir nulos en columnas numéricas
     df_clean['id_pedido'] = df_clean['id_pedido'].astype('Int64')
     df_clean['cantidad'] = df_clean['cantidad'].astype('Int64')
     
@@ -51,7 +49,7 @@ def limpiar_datos(df):
             'producto', 'categoria', 'cantidad', 'precio_unitario', 'descuento_pct', 
             'estado_pedido', 'fecha_despacho']
     
-    # Asegurarnos de que solo queden las columnas definidas
+    # Aseguramos de limpiar 
     df_clean = df_clean[cols]
     
     logging.info(f"Filas finales tras limpieza: {len(df_clean)}")
